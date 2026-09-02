@@ -188,6 +188,49 @@
             font-size: 0.9rem;
             border-top: 1px solid #334155;
         }
+        /* Continuous Text Ticker */
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--accent-gold, #b45309);
+    color: #ffffff;
+    padding: 0.6rem 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ticker-move {
+    display: inline-block;
+    white-space: nowrap;
+    animation: tickerLoop 25s linear infinite;
+}
+
+/* Pause scrolling on hover so users can read */
+.ticker-wrap:hover .ticker-move {
+    animation-play-state: paused;
+}
+
+.ticker-item {
+    display: inline-block;
+    padding: 0 2rem;
+}
+
+.ticker-item i {
+    margin-right: 0.4rem;
+    color: #fef3c7; /* Light gold icon accent */
+}
+
+/* Infinite Loop Keyframes */
+@keyframes tickerLoop {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
     </style>
 </head>
 <body>
@@ -201,7 +244,21 @@
             <a href="blogs.html">Blogs</a>
             <a href="#contact">Consult</a>
         </nav>
+     
     </header>
+       <div class="ticker-wrap">
+    <div class="ticker-move">
+        <div class="ticker-item"><i class="fas fa-om"></i> Welcome to Vinayak Krupa Astrology</div>
+        <div class="ticker-item"><i class="fas fa-star"></i> Today's Tithi: Panchmi</div>
+        <div class="ticker-item"><i class="fas fa-calendar-alt"></i> Upcoming Festival: Krishna Janmastami (Sep 04)</div>
+        <div class="ticker-item"><i class="fas fa-moon"></i> Next Ekadashi Vrat: Aja Ekadashi (7th September)</div>
+        
+        <div class="ticker-item"><i class="fas fa-om"></i> Welcome to Vinayak Krupa Astrology</div>
+        <div class="ticker-item"><i class="fas fa-star"></i> Today's Tithi: Panchmi</div>
+        <div class="ticker-item"><i class="fas fa-calendar-alt"></i> Upcoming Festival: Krishna Janmastami (Sep 04)</div>
+        <div class="ticker-item"><i class="fas fa-moon"></i> Next Ekadashi Vrat: Aja Ekadashi (7th September)</div>
+    </div>
+</div>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -235,6 +292,111 @@
             transform: translateY(-3px);
             border-color: var(--accent-gold);
         }
+        /* Form Container */
+.consultation-form {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-radius: 12px;
+    padding: 2.5rem;
+    max-width: 550px;
+    margin: 0 auto;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.consultation-form h3 {
+    font-size: 1.6rem;
+    color: var(--text-dark, #1e293b);
+    margin-bottom: 0.4rem;
+}
+
+.consultation-form p {
+    color: var(--text-muted, #64748b);
+    font-size: 0.95rem;
+    margin-bottom: 1.8rem;
+}
+
+/* Input Fields Group */
+.form-group {
+    margin-bottom: 1.4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark, #1e293b);
+    margin-bottom: 0.5rem;
+}
+
+/* Icon Wrap & Inputs */
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 14px;
+    color: var(--accent-gold, #b45309);
+    font-size: 1.1rem;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.input-with-icon input[type="text"],
+.input-with-icon input[type="date"],
+.input-with-icon input[type="time"] {
+    width: 100%;
+    padding: 0.85rem 1rem 0.85rem 2.8rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--text-dark, #1e293b);
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color, #cbd5e1);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus State */
+.input-with-icon input:focus {
+    border-color: var(--accent-gold, #b45309);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.15);
+}
+
+/* Customizing Native Calendar & Clock Icons */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(35%) sepia(85%) saturate(1200%) hue-rotate(10deg) brightness(90%);
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    background-color: var(--accent-gold, #b45309);
+    color: #ffffff;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #92400e;
+}
+
     </style>
 
     <section class="hero">
@@ -254,7 +416,6 @@
             </a>
         </div>
     </section>
-
     <section id="services" class="services">
         <h2 class="section-title">Our Services</h2>
         <div class="grid">
@@ -277,30 +438,72 @@
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <div class="contact-container">
-            <h2 class="section-title">Schedule a Consultation</h2>
-            <form action="https://formspree.io/f/xzebrpdq" method="POST">
+<form id="contact" class="consultation-form" action="https://formspree.io/f/xzebrpdq" method="POST">
+    <h3>Book Your Consultation</h3>
+    <p>Provide your details for accurate Kundali reading and predictions.</p>
+
+    <!-- Full Name -->
     <div class="form-group">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="Full Name" required placeholder="Enter your name">
-    </div>
-    <div class="form-group">
-        <label for="contact">Contact Info (Email, Phone Number, etc.) </label>
-        <input type="text" id="contact" name="Contact Info" required placeholder="Enter your email or phone number">
-    </div>
-    <div class="form-group">
-        <label for="details">Birth Details (Date, Time, Place)</label>
-        <input type="text" id="details" name="Birth Details" required placeholder="DD/MM/YYYY, HH:MM AM/PM, City">
-    </div>
-    <div class="form-group">
-        <label for="message">Primary Concern / Message</label>
-        <textarea id="message" name="Message" placeholder="Briefly describe what you'd like guidance on..."></textarea>
-    </div>
-    <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
-</form>
+        <label for="fullName">Full Name</label>
+        <div class="input-with-icon">
+            <i class="fas fa-user"></i>
+            <input type="text" id="fullName" name="Full Name" placeholder="Enter your full name" required>
         </div>
-    </section>
+    </div>
+
+    <!-- Contact Details (Email or Phone) -->
+    <div class="form-group">
+        <label for="contactInfo">Contact Details (Email or Phone)</label>
+        <div class="input-with-icon">
+            <i class="fas fa-envelope"></i>
+            <input type="text" id="contactInfo" name="Contact Info" placeholder="Email address or WhatsApp number" required>
+        </div>
+    </div>
+
+    <!-- Date of Birth (Calendar Menu) -->
+    <div class="form-group">
+        <label for="birthDate">Date of Birth</label>
+        <div class="input-with-icon">
+            <i class="fas fa-calendar-alt"></i>
+            <input type="date" id="birthDate" name="Date of Birth" required>
+        </div>
+    </div>
+
+    <!-- Time of Birth (Clock Menu) -->
+    <div class="form-group">
+        <label for="birthTime">Time of Birth</label>
+        <div class="input-with-icon">
+            <i class="fas fa-clock"></i>
+            <input type="time" id="birthTime" name="Time of Birth" required>
+        </div>
+    </div>
+
+    <!-- Place of Birth -->
+    <div class="form-group">
+        <label for="birthPlace">Place of Birth (City, State)</label>
+        <div class="input-with-icon">
+            <i class="fas fa-map-marker-alt"></i>
+            <input type="text" id="birthPlace" name="Place of Birth" placeholder="e.g. Mumbai, Maharashtra" required>
+        </div>
+    </div>
+    <!-- Full Name -->
+    <div class="form-group">
+        <label for="Query">Queries</label>
+        <div class="input-with-icon">
+            <i class="fas fa-question-circle"></i>
+            <input type="text" id="Query" name="Query" placeholder="Enter your queries" required>
+        </div>
+    </div>
+
+
+    <!-- Optional: Formspree Custom Subject -->
+    <input type="hidden" name="_subject" value="New Astrology Consultation Request">
+
+    <!-- Submit Button -->
+    <button type="submit" class="submit-btn">
+        <i class="fas fa-paper-plane"></i> Submit Details for Analysis
+    </button>
+</form>
 
     <footer>
         <p>&copy; 2026 Vinayak Krupa Astrology. All rights reserved.</p>
