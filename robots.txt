@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://vinayakkrupaastrology.github.io/VKA/sitemap.xml
